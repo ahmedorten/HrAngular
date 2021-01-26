@@ -9,20 +9,19 @@ import { InlineSVGModule } from 'ng-inline-svg';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AuthService } from './modules/auth/_services/auth.service';
 import { FakeAPIService } from './_fake/fake-api.service';
 import { environment } from 'src/environments/environment';
 // Highlight JS
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { SplashScreenModule } from './_metronic/partials/layout/splash-screen/splash-screen.module';
 
-function appInitializer(authService: AuthService) {
-  return () => {
-    return new Promise((resolve) => {
-      authService.getUserByToken().subscribe().add(resolve);
-    });
-  };
-}
+// function appInitializer(authService: AuthService) {
+//   return () => {
+//     return new Promise((resolve) => {
+//       authService.getUserByToken().subscribe().add(resolve);
+//     });
+//   };
+// }
 
 @NgModule({
   declarations: [AppComponent],
@@ -45,12 +44,6 @@ function appInitializer(authService: AuthService) {
     NgbModule,
   ],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: appInitializer,
-      multi: true,
-      deps: [AuthService],
-    },
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {

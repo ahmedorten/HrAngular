@@ -1,8 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LayoutService } from '../../../../_metronic/core';
-import { AuthService } from '../../../../modules/auth/_services/auth.service';
-import { UserModel } from '../../../../modules/auth/_models/user.model';
 import KTLayoutQuickSearch from '../../../../../assets/js/layout/extended/quick-search';
 import KTLayoutQuickNotifications from '../../../../../assets/js/layout/extended/quick-notifications';
 import KTLayoutQuickActions from '../../../../../assets/js/layout/extended/quick-actions';
@@ -18,7 +16,6 @@ import { KTUtil } from '../../../../../assets/js/components/util';
   styleUrls: ['./topbar.component.scss'],
 })
 export class TopbarComponent implements OnInit, AfterViewInit {
-  user$: Observable<UserModel>;
   // tobbar extras
   extraSearchDisplay: boolean;
   extrasSearchLayout: 'offcanvas' | 'dropdown';
@@ -33,8 +30,7 @@ export class TopbarComponent implements OnInit, AfterViewInit {
   extrasUserDisplay: boolean;
   extrasUserLayout: 'offcanvas' | 'dropdown';
 
-  constructor(private layout: LayoutService, private auth: AuthService) {
-    this.user$ = this.auth.currentUserSubject.asObservable();
+  constructor(private layout: LayoutService) {
   }
 
   ngOnInit(): void {
