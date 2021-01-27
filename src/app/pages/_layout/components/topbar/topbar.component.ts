@@ -1,3 +1,5 @@
+import { TranslationModule } from './../../../../modules/i18n/translation.module';
+import { AuthService } from 'src/app/shared/services/auth.service';
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { LayoutService } from '../../../../_metronic/core';
@@ -30,7 +32,7 @@ export class TopbarComponent implements OnInit, AfterViewInit {
   extrasUserDisplay: boolean;
   extrasUserLayout: 'offcanvas' | 'dropdown';
 
-  constructor(private layout: LayoutService) {
+  constructor(private layout: LayoutService, private auth: AuthService) {
   }
 
   ngOnInit(): void {
@@ -103,5 +105,8 @@ export class TopbarComponent implements OnInit, AfterViewInit {
       // Init Header Topbar For Mobile Mode
       KTLayoutHeaderTopbar.init('kt_header_mobile_topbar_toggle');
     });
+  }
+  logout() {
+    this.auth.logout();
   }
 }

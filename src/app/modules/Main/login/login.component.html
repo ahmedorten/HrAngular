@@ -1,0 +1,37 @@
+<!--begin::Login Sign in form-->
+<div class="login-signin">
+  <div class="mb-20">
+    <h3 class="opacity-40 font-weight-normal">Sign In To HR System</h3>
+    <p class="opacity-40">Enter your details to login to your account:</p>
+  </div>
+
+
+  <form id="kt_login_signin_form" #f="ngForm" (ngSubmit)="signIn(f.value)">
+
+    <div class="form-group" data-validate="Email is required">
+      <input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" type="text"
+        placeholder="Email" name="username" data-val="true" id="username" ngModel>
+    </div>
+
+    <div class="form-group" data-validate="Password is required">
+      <input class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" placeholder="password"
+        type="password" id="password" ngModel name="password">
+    </div>
+    
+    <div *ngIf="!isActive" class="alert alert-danger">Sorry ,You don`t have permission to login</div>
+    <div *ngIf="invalidLogIn" class="alert alert-danger">username or password is invalid</div>
+    <div *ngIf="!emailConfirmed" class="alert alert-danger">Please Confirm Your Email</div>
+
+    <div class="form-group text-center mt-10">
+      <button id="kt_login_signin_submit" class="btn btn-pill btn-primary opacity-90 px-15 py-3" type="submit">
+        Sign in
+      </button>
+    </div>
+
+  </form>
+  <div class="mt-10">
+    <span class="opacity-40 mr-4">Don't have an account yet?</span>
+    <a routerLink="/signup" id="kt_login_signup" class="text-white opacity-30 font-weight-normal">Sign Up</a>
+  </div>
+</div>
+<!--end::Login Sign in form-->

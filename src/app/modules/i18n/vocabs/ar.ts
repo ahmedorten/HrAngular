@@ -59,6 +59,7 @@ export const locale = {
         MAX_LENGTH_FIELD: 'أقصى طول للحقل:',
         INVALID_FIELD: 'الحقل غير صحيح',
       }
-    }
+    },
+    logout: 'تسجيل الخروج'
   }
 };

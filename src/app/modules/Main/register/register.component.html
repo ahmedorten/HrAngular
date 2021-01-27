@@ -1,0 +1,85 @@
+<div class="login-signin">
+  <div class="mb-20">
+    <h3 class="opacity-40 font-weight-normal">Sign Up To HR System</h3>
+    <p class="opacity-40">Enter your details to Sign Up to your account:</p>
+  </div>
+  <form id="kt_login_signin_form" #f="ngForm" (ngSubmit)="createNewAccount(f.value)">
+    <div *ngIf="invalidRegisteration" class="alert alert-danger">Can not Create Account With This Data</div>
+
+    <div class="form-group">
+      <input #firstName="ngModel" type="text"
+        class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="firstName" ngModel
+        name="firstName" placeholder="First Name" required>
+      <span class="yellowColor" *ngIf="firstName.touched && firstName.errors?.required">
+        First Name is Required.
+      </span>
+    </div>
+
+    <div class="form-group">
+      <input #lastName="ngModel" type="text"
+        class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="lastName" ngModel
+        name="lastName" placeholder="Last Name" required>
+      <span class="yellowColor" *ngIf="lastName.touched && lastName.errors?.required">
+        Last Name is Required
+      </span>
+    </div>
+
+    <div class="form-group">
+      <input #email="ngModel" type="text"
+        class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="email" ngModel
+        name="email" placeholder="Email Address" required>
+      <span class="yellowColor" *ngIf="email.touched && email.errors?.required">
+        Email is Required.
+      </span>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <input #password="ngModel" [type]="fieldTextType ? 'text' : 'password'"
+          class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="password" ngModel
+          name="password" placeholder="Password" required>
+        <div class="input-group-append">
+          <button class="input-group-text" type="button" (click)="toggleFieldTextType()">
+            <span *ngIf="fieldTextType"><i class="fa fa-eye-slash"></i></span>
+            <span *ngIf="!fieldTextType"><i class="fa fa-eye"></i></span>
+          </button>
+        </div>
+      </div>
+      <span class="yellowColor" *ngIf="password.touched && password.errors?.required">
+        Password is Required.
+      </span>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <input #confirmpassword="ngModel" [type]="fieldTextTypeConfirm ? 'text' : 'password'"
+          class="form-control h-auto text-white bg-white-o-5 rounded-pill border-0 py-4 px-8" id="confirmpassword"
+          ngModel name="confirmpassword" placeholder="Confirm Password" required (keyup)="CheckConfirm(f.value)"
+          pattern="{{ password.value }}">
+        <div class="input-group-append">
+          <button class="input-group-text" type="button" (click)="toggleFieldTextTypeConfirm()">
+            <span *ngIf="fieldTextTypeConfirm"><i class="fa fa-eye-slash"></i></span>
+            <span *ngIf="!fieldTextTypeConfirm"><i class="fa fa-eye"></i></span>
+          </button>
+        </div>
+      </div>
+      <span class="yellowColor" *ngIf="confirmpassword.touched && confirmpassword.errors?.required">
+        Confirm Password is Required.
+      </span>
+      <span *ngIf="!passwordConfirmed || confirmpassword.touched && confirmpassword.errors?.pattern"
+        class="yellowColor">please Confirm
+        Your Password</span>
+    </div>
+    <div class="form-group text-center mt-10">
+      <button id="kt_login_signin_submit" class="btn btn-pill btn-primary opacity-90 px-15 py-3" type="submit">
+        Sign up
+      </button>
+    </div>
+  </form>
+
+  <div class="mt-10">
+    <span class="opacity-40 mr-4">if you have an account?</span>
+    <a routerLink="/login" id="kt_login_signup" class="text-white opacity-30 font-weight-normal">Sign In</a>
+  </div>
+</div>
+<!--end::Login Sign in form-->

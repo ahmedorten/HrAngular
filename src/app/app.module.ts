@@ -1,3 +1,4 @@
+import { MainModule } from './modules/Main/main.module';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,19 +10,12 @@ import { InlineSVGModule } from 'ng-inline-svg';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FakeAPIService } from './_fake/fake-api.service';
-import { environment } from 'src/environments/environment';
 // Highlight JS
 import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { SplashScreenModule } from './_metronic/partials/layout/splash-screen/splash-screen.module';
+import { CoreModule } from './_metronic/core';
 
-// function appInitializer(authService: AuthService) {
-//   return () => {
-//     return new Promise((resolve) => {
-//       authService.getUserByToken().subscribe().add(resolve);
-//     });
-//   };
-// }
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -33,12 +27,8 @@ import { SplashScreenModule } from './_metronic/partials/layout/splash-screen/sp
     HttpClientModule,
     HighlightModule,
     ClipboardModule,
-    environment.isMockEnabled
-      ? HttpClientInMemoryWebApiModule.forRoot(FakeAPIService, {
-        passThruUnknownUrl: true,
-        dataEncapsulation: false,
-      })
-      : [],
+    CoreModule,
+    MainModule,
     AppRoutingModule,
     InlineSVGModule.forRoot(),
     NgbModule,

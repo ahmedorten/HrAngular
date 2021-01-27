@@ -5,19 +5,9 @@
 export const environment = {
   production: false,
   appVersion: 'v717demo2',
-  USERDATA_KEY: 'authf649fc9a5f55',
-  isMockEnabled: true,
   apiUrl:'https://localhost:44328/api',
   serverURL:'https://localhost:44328',
   whitelistedDomains:["localhost:44328"],
   blacklistedRoutes:["localhost:44328/api/auth/login"]
 };
 
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
