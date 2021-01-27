@@ -5,9 +5,9 @@
 export const environment = {
   production: false,
   appVersion: 'v717demo2',
-  apiUrl:'https://localhost:44328/api',
-  serverURL:'https://localhost:44328',
-  whitelistedDomains:["localhost:44328"],
-  blacklistedRoutes:["localhost:44328/api/auth/login"]
+  apiUrl: 'https://localhost:44328/api',
+  serverURL: 'https://localhost:44328', 
+  whitelistedDomains: ["localhost:44328"],
+  blacklistedRoutes: ["localhost:44328/api/auth/login"]
 };
 

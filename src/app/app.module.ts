@@ -13,8 +13,12 @@ import { HighlightModule, HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import { SplashScreenModule } from './_metronic/partials/layout/splash-screen/splash-screen.module';
 import { CoreModule } from './_metronic/core';
 import { MainModule } from './modules/Main/main.module';
+import { JwtModule } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
 
-
+export function tokenGetter() {
+  return localStorage.getItem("token");
+}
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,6 +35,13 @@ import { MainModule } from './modules/Main/main.module';
     AppRoutingModule,
     InlineSVGModule.forRoot(),
     NgbModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: environment.whitelistedDomains,
+        disallowedRoutes: environment.blacklistedRoutes
+      }
+    }),
   ],
   providers: [
     {

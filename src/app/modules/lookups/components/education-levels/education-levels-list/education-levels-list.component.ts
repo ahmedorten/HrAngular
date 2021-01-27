@@ -34,6 +34,7 @@ export class EducationLevelsListComponent implements OnInit {
       res => {
         this.educationLevelsComponent.EducationLevels = res as EducationLevels[];
         this.arrLength = this.educationLevelsComponent.EducationLevels.length;
+        console.log(this.arrLength);
       },
       (error: AppError) => {
         console.log("error obj", error);
