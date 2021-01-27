@@ -1,0 +1,61 @@
+
+<p class="row">
+    <button type="button" class="btn btn-raised btn-outline-primary" (click)="OpenModal(content)">
+      <i class="far fa-plus-square"></i> &nbsp; {{'Add' | translate}}
+    </button>
+  </p>
+<ng-template #content let-c="close" let-d="dismiss">
+    <div>
+ 
+     <div class="modal-header" [class.right-dir]="langDir">
+       <h3 class="modal-title" id="modal-basic-title">
+         <span *ngIf="!IsEdit">{{ 'Add' | translate }} {{ 'EducationLevelName' | translate }}</span>
+         <span *ngIf="IsEdit">{{ 'Edit' | translate }} {{ 'EducationLevelName' | translate }}</span>
+       </h3>
+       <button style="display: none;" type="button" class="close" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+ 
+     <div class="modal-body" [class.right-dir]="langDir">
+       <form [formGroup]="formData">
+         <div class="form-row">
+           <input type="hidden" formControlName="educationLevelCode" name="educationLevelCode" />
+           <div class="form-group col-md-6">
+             <label for="educationLevelNameE">{{ 'EducationLevelName(EN.)' | translate }} <span class="red">*</span></label>
+             <input type="text" formControlName="educationLevelNameE" class="form-control" type="text" [pattern]="EnglishPattern">
+             <span class="text-danger"
+               *ngIf="formData.get('educationLevelNameE').touched && formData.get('educationLevelNameE').errors?.required">
+               {{ 'EducationLevelName' | translate }} {{ 'inEnglish' | translate }} {{ 'IsRequired' | translate }}
+             </span>
+           </div>
+           <div class="form-group col-md-6">
+             <label for="educationLevelNameA">{{ 'EducationLevelName(AR.)' | translate }} <span class="red">*</span></label>
+             <input type="text" formControlName="educationLevelNameA" class="form-control" type="text" [pattern]="ArabicPattern">
+             <span class="text-danger"
+               *ngIf="formData.get('educationLevelNameA').touched && formData.get('educationLevelNameA').errors?.required">
+               {{ 'EducationLevelName' | translate }} {{ 'inArabic' | translate }} {{ 'IsRequired' | translate }}
+             </span>
+           </div>
+         </div>
+ 
+       </form>
+     </div>
+ 
+     <div class="modal-footer">
+       <div>
+         <button type="button" class="btn btn-raised btn-outline-primary" (click)="onSubmit()" [disabled]="formData.invalid">
+           <i class="far fa-save"></i> {{'Submit' | translate}}
+         </button>
+         &nbsp;
+         <button type="button" class="btn btn-danger btn-outline-danger" (click)=" resetModal();d('Cross click')">
+           <i class="far fa-times-circle"></i>
+           {{'Close' | translate}}
+         </button>
+       </div>
+     </div>
+ 
+   </div>
+ </ng-template>
+<br>
+<button [hidden]="true" data-toggle="modal" (click)="editcontent(content)"  id="auto_trigger"></button>

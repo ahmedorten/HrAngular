@@ -10,6 +10,93 @@
     </a>
   </li>
   <!-- end::1 Level -->
-  
+  <!-- Classic submenu -->
+  <!-- begin::1 Level -->
+  <li [attr.data-menu-toggle]="headerMenuDesktopToggle" aria-haspopup="true"
+    class="menu-item menu-item-submenu menu-item-rel" routerLinkActive="menu-item-active">
+    <a class="menu-link menu-toggle" href="#" routerLinkActive="active">
+      <span class="menu-text" translate="MENU.SystemSetup"></span>
+      <i class="menu-arrow"></i>
+    </a>
+    <div class="menu-submenu menu-submenu-classic menu-submenu-left">
+      <ul class="menu-subnav">
+        <!-- Form Controls -->
+        <!-- begin::2 Level -->
+        <li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true"
+          routerLinkActive="menu-item-active">
+          <a class="menu-link menu-toggle" routerLink="lookups/countries" routerLinkActive="active">
+            <span [inlineSVG]="'./assets/media/svg/icons/Design/PenAndRuller.svg'" cacheSVG="true"
+              class="svg-icon menu-icon"></span>
+            <span class="menu-text">Countries</span>
+          </a>
+        </li>
+        <!-- End::2 Level -->
+        <!-- begin::2 Level -->
+        <li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true"
+          routerLinkActive="menu-item-active">
+          <a class="menu-link menu-toggle" routerLink="lookups/education-levels" routerLinkActive="active">
+            <span [inlineSVG]="'./assets/media/svg/icons/Design/PenAndRuller.svg'" cacheSVG="true"
+              class="svg-icon menu-icon"></span>
+            <span class="menu-text">Education Levels</span>
+          </a>
+        </li>
+        <!-- End::2 Level -->
+        <!-- begin::2 Level -->
+        <li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true"
+          routerLinkActive="menu-item-active">
+          <a class="menu-link menu-toggle" routerLink="lookups/relationships" routerLinkActive="active">
+            <span [inlineSVG]="'./assets/media/svg/icons/Design/PenAndRuller.svg'" cacheSVG="true"
+              class="svg-icon menu-icon"></span>
+            <span class="menu-text">RelationShips</span>
+          </a>
+        </li>
+        <!-- End::2 Level -->
+        <!-- begin::2 Level -->
+        <li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true"
+          routerLinkActive="menu-item-active">
+          <a class="menu-link menu-toggle" routerLink="lookups/employee-category" routerLinkActive="active">
+            <span [inlineSVG]="'./assets/media/svg/icons/Design/PenAndRuller.svg'" cacheSVG="true"
+              class="svg-icon menu-icon"></span>
+            <span class="menu-text">Employee Category</span>
+          </a>
+        </li>
+        <!-- End::2 Level -->
+        <!-- begin::2 Level -->
+        <li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true"
+          routerLinkActive="menu-item-active">
+          <a class="menu-link menu-toggle"  routerLink="lookups/Languages" routerLinkActive="active">
+            <span [inlineSVG]="'./assets/media/svg/icons/Design/PenAndRuller.svg'" cacheSVG="true"
+              class="svg-icon menu-icon"></span>
+            <span class="menu-text">Languages</span>
+          </a>
+        </li>
+        <!-- End::2 Level -->
+        <li class="menu-item menu-item-submenu" data-menu-toggle="hover" aria-haspopup="true"
+          routerLinkActive="menu-item-active">
+          <a class="menu-link menu-toggle" href="#" routerLinkActive="active">
+            <span [inlineSVG]="'./assets/media/svg/icons/Design/PenAndRuller.svg'" cacheSVG="true"
+              class="svg-icon menu-icon"></span>
+            <span class="menu-text">For Test</span>
+            <i class="menu-arrow"></i>
+          </a>
+          <div class="menu-submenu menu-submenu-classic menu-submenu-right">
+            <ul class="menu-subnav">
+              <!-- begin::3 Level -->
+              <li class="menu-item" routerLinkActive="menu-item-active">
+                <a class="menu-link" routerLink="#" routerLinkActive="active">
+                  <i class="menu-bullet menu-bullet-dot"><span></span></i>
+                  <span class="menu-text">For Test</span>
+                </a>
+              </li>
+              <!-- end::3 Level -->
+            </ul>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </li>
+  <!-- end::1 Level -->
+
 </ul>
 <!-- end::Header Nav -->

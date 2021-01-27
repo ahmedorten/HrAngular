@@ -1,0 +1,21 @@
+<a class="btn btn-primary" routerLink="/lookups/countries-form">Add Country</a>
+<table class="table table-border">
+    <thead>
+        <tr>
+            <th>CountrySerial</th>
+            <th>CountryName</th>
+            <th>CountryNameL</th>
+            <th>NationalityName</th>
+            <th>NationalityNameL</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let country of countries;index as i">
+            <td>{{i + 1}}</td>
+            <td>{{country.countryName}}</td>
+            <td>{{country.countryNameL}}</td>
+            <td>{{country.nationalityName}}</td>
+            <td>{{country.nationalityNameL}}</td>
+        </tr>
+    </tbody>
+</table>

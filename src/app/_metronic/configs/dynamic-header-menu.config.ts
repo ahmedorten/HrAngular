@@ -6,6 +6,7 @@ export const DynamicHeaderMenuConfig = {
       alignment: 'left',
       page: '/dashboard',
       translate: 'MENU.DASHBOARD',
-    }
+    },
+    
   ]
 };

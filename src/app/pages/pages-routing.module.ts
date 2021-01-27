@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuard } from '../shared/services/auth-guard.service';
 import { LayoutComponent } from './_layout/layout.component';
 
 const routes: Routes = [
@@ -16,6 +17,12 @@ const routes: Routes = [
         path: 'builder',
         loadChildren: () =>
           import('./builder/builder.module').then((m) => m.BuilderModule),
+      },
+      {
+        path: '',
+        canActivate: [AuthGuard],
+        loadChildren: () =>
+          import('../modules/lookups/lookups.module').then((m) => m.LookupsModule),
       },
       {
         path: '',

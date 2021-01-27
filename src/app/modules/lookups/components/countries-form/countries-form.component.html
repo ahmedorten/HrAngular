@@ -1,0 +1,24 @@
+<h1>Add Countries</h1>
+<form #f="ngForm" (ngSubmit)="save(f.value)">
+    <div class="form-group">
+        <label for="CountrySerial">CountrySerial</label>
+        <input type="text" ngModel name="CountrySerial" class="form-control" id="CountrySerial" aria-describedby="CountrySerial">
+    </div>
+    <div class="form-group">
+        <label for="CountryName">CountryName</label>
+        <input type="text" ngModel name="CountryName" class="form-control" id="CountryName" aria-describedby="CountryName">
+    </div>
+    <div class="form-group">
+        <label for="CountryNameL">CountryNameL</label>
+        <input type="text" ngModel name="CountryNameL" class="form-control" id="CountryNameL" aria-describedby="CountryNameL">
+    </div>
+    <div class="form-group">
+        <label for="NationalityName">NationalityName</label>
+        <input type="text" ngModel name="NationalityName" class="form-control" id="NationalityName" aria-describedby="NationalityName">
+    </div>
+    <div class="form-group">
+        <label for="NationalityNameL">NationalityNameL</label>
+        <input type="text" ngModel name="NationalityNameL" class="form-control" id="NationalityNameL" aria-describedby="NationalityNameL">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

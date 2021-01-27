@@ -4,8 +4,6 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 
 import { AuthService } from './services/auth.service';
@@ -17,8 +15,6 @@ import { AuthService } from './services/auth.service';
   imports: [
     CommonModule,
     HttpClientModule,
-    BrowserModule,
-    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([])
@@ -30,8 +26,6 @@ import { AuthService } from './services/auth.service';
   ],
   exports: [
     CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

@@ -111,7 +111,7 @@ export const DefaultLayoutConfig = {
 
   // Subheader
   subheader: {
-    display: true,
+    display: false,
     displayDesc: false,
     displayDaterangepicker: true,
     breadcrumb: {

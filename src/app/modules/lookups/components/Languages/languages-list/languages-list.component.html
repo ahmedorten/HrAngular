@@ -1,0 +1,53 @@
+<div class="jumbtron">
+    <h1 class="text-center mt-3"><span class="span_header">{{'Languages' | translate}}</span></h1>
+    <hr>
+    <p class="row">
+        <button type="button" class="btn btn-raised btn-outline-primary" (click)="languagesModalVisibility = true;isEdit=false;">
+            <i class="far fa-plus-square"></i> &nbsp; {{'Add' | translate}}
+        </button>
+    </p>
+
+    <div class="container">
+        <table class="table table-hover table-bordered table-striped">
+            <thead class="thead-dark">
+                <th class="text-center">#</th>
+                <th class="text-center">{{'LanguageName(EN.)' | translate}}</th>
+                <th class="text-center">{{'LanguageName(AR.)' | translate}}</th>
+                <th class="text-center">{{'Edit' | translate }}</th>
+                <th class="text-center">{{'Delete' | translate }}</th>
+            </thead>
+            <tbody>
+                <ng-container>
+                    <tr *ngFor="let item of LanguageList;index as i">
+                        <th scope="row" class="text-center">{{i + 1}}</th>
+                        <th class="text-center">{{item.languageNameE}}</th>
+                        <th class="text-center">{{item.languageNameA}}</th>
+                        <th class="text-center">
+                            <button type="button" class="custom-edit-blue-btn" (click)="editItem(item)" placement="top">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </th>
+                        <td class="text-center">
+                            <button type="button" class="custom-edit-cancel-btn" (click)="OnDelete(item)"
+                                placement="top">
+                                <i class="far fa-trash-alt"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </ng-container>
+                <ng-container *ngIf="arrLength == 0">
+                    <tr>
+                        <td colspan="8" class="align-middle text-center">
+                            <span class="font_bold"> {{ 'NoDataFound' | translate }} .</span>
+                        </td>
+                    </tr>
+                </ng-container>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<app-languages-model [(Edit)]="isEdit" [(ItemEdit)]="itemEdit"  [(visible)]="languagesModalVisibility" (updateLanguage)="updateLanguage($event)" (createdLanguage)="addLanguage($event)">
+
+</app-languages-model>
